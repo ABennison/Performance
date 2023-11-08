@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataSql.Classes
 {
@@ -12,10 +7,18 @@ namespace DataSql.Classes
     public class Instrument
     {
         [Key]
-        [StringLength(255)]
-        public string Identifier { get; set; }
+        [Column("InstrumentIdentifier")]
+        [MaxLength(255)]
+        public string InstrumentIdentifier { get; set; }
 
-        [StringLength(255)]
+        [Required]
+        [Column("InstrumentType")]
+        [MaxLength(255)]
         public string InstrumentType { get; set; }
+
+        [Required]
+        [Column("LocalCurrencyCode")]
+        [MaxLength(3)]
+        public string LocalCurrencyCode { get; set; }
     }
 }

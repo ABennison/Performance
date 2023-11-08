@@ -1,6 +1,5 @@
 ﻿using DataSql.Classes;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
 
 namespace DataSql
 {
@@ -8,6 +7,7 @@ namespace DataSql
     {
         public DbSet<Instrument> Instruments { get; set; }
         public DbSet<InstrumentType> InstrumentTypes { get; set; }
+        public DbSet<MarketPrice> MarketPrices { get; set; }
 
 
 
