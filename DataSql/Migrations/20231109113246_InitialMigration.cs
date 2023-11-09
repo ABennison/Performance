@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataSql.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -47,6 +47,19 @@ namespace DataSql.Migrations
                 {
                     table.PrimaryKey("PK_MarketPrice", x => new { x.Date, x.InstrumentIdentifier });
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Position",
+                columns: table => new
+                {
+                    Date = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    InstrumentIdentifier = table.Column<string>(type: "TEXT", nullable: false),
+                    Amount = table.Column<decimal>(type: "TEXT", precision: 24, scale: 8, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Position", x => new { x.Date, x.InstrumentIdentifier });
+                });
         }
 
         /// <inheritdoc />
@@ -60,6 +73,9 @@ namespace DataSql.Migrations
 
             migrationBuilder.DropTable(
                 name: "MarketPrice");
+
+            migrationBuilder.DropTable(
+                name: "Position");
         }
     }
 }

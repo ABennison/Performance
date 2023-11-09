@@ -73,6 +73,28 @@ namespace DataSql.Migrations
 
                     b.ToTable("MarketPrice");
                 });
+
+            modelBuilder.Entity("DataSql.Classes.Position", b =>
+                {
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Date")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("InstrumentIdentifier")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("InstrumentIdentifier")
+                        .HasColumnOrder(2);
+
+                    b.Property<decimal?>("Amount")
+                        .HasPrecision(24, 8)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Amount");
+
+                    b.HasKey("Date", "InstrumentIdentifier");
+
+                    b.ToTable("Position");
+                });
 #pragma warning restore 612, 618
         }
     }

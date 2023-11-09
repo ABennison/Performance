@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataSql.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231108181937_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231109113246_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,6 +75,28 @@ namespace DataSql.Migrations
                     b.HasKey("Date", "InstrumentIdentifier");
 
                     b.ToTable("MarketPrice");
+                });
+
+            modelBuilder.Entity("DataSql.Classes.Position", b =>
+                {
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Date")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("InstrumentIdentifier")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("InstrumentIdentifier")
+                        .HasColumnOrder(2);
+
+                    b.Property<decimal?>("Amount")
+                        .HasPrecision(24, 8)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Amount");
+
+                    b.HasKey("Date", "InstrumentIdentifier");
+
+                    b.ToTable("Position");
                 });
 #pragma warning restore 612, 618
         }

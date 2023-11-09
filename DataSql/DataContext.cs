@@ -8,6 +8,7 @@ namespace DataSql
         public DbSet<Instrument> Instruments { get; set; }
         public DbSet<InstrumentType> InstrumentTypes { get; set; }
         public DbSet<MarketPrice> MarketPrices { get; set; }
+        public DbSet<Position> Positions { get; set; }
 
 
 
