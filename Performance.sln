@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSql", "DataSql\DataSql.csproj", "{C6D838C3-0480-4F14-A37B-B4F19B8E2AF0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{E21061E2-A0D0-4434-9629-0DB663A8C9DB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program", "Program\Program.csproj", "{9CC3BBB3-FAC4-4EE1-8267-09E73EA1F669}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PnLCalculator", "Program\PnLCalculator.csproj", "{9CC3BBB3-FAC4-4EE1-8267-09E73EA1F669}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,14 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C6D838C3-0480-4F14-A37B-B4F19B8E2AF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6D838C3-0480-4F14-A37B-B4F19B8E2AF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6D838C3-0480-4F14-A37B-B4F19B8E2AF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6D838C3-0480-4F14-A37B-B4F19B8E2AF0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E21061E2-A0D0-4434-9629-0DB663A8C9DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E21061E2-A0D0-4434-9629-0DB663A8C9DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E21061E2-A0D0-4434-9629-0DB663A8C9DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E21061E2-A0D0-4434-9629-0DB663A8C9DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9CC3BBB3-FAC4-4EE1-8267-09E73EA1F669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9CC3BBB3-FAC4-4EE1-8267-09E73EA1F669}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CC3BBB3-FAC4-4EE1-8267-09E73EA1F669}.Release|Any CPU.ActiveCfg = Release|Any CPU

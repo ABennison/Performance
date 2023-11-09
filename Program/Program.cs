@@ -1,10 +1,11 @@
-﻿using DataSql;
-using DataSql.Classes;
+﻿using PnLCalculator;
 
 using DataContext db = new DataContext();
 
-// Note: This sample requires the database to be created before running.
 Console.WriteLine($"Database path: {db.DbPath}");
+
+var thingy = db.Instruments.ToList();
+int sss = 5;
 
 // Create
 //Instrument newInstrument = new Instrument() { InstrumentIdentifier = "TSLA", InstrumentType = "Equity" };
