@@ -2,9 +2,9 @@
 
 using DataContext db = new DataContext();
 
-Console.WriteLine($"Database path: {db.DbPath}");
+db.InitialiseDatabase();
 
-var thingy = db.Instruments.ToList();
+var thingy = db.MarketPrices.Where(x => x.InstrumentID == 1).ToList();
 int sss = 5;
 
 // Create

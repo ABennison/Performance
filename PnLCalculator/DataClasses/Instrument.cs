@@ -7,18 +7,20 @@ namespace PnLCalculator.Classes
     public class Instrument
     {
         [Key]
-        [Column("InstrumentIdentifier")]
+        [Column("ID")]
+        public int ID { get; set; }
+
         [MaxLength(255)]
-        public string InstrumentIdentifier { get; set; }
+        public string Ticker { get; set; }
 
         [Required]
-        [Column("InstrumentType")]
-        [MaxLength(255)]
+        [Column("Type")]
+        [MaxLength(50)]
         public string InstrumentType { get; set; }
 
         [Required]
-        [Column("LocalCurrencyCode")]
+        [Column("LocalCurrency")]
         [MaxLength(3)]
-        public string LocalCurrencyCode { get; set; }
+        public string LocalCurrency { get; set; }
     }
 }

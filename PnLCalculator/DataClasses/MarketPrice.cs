@@ -5,20 +5,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PnLCalculator.Classes
 {
     [Table("MarketPrice")]
-    [PrimaryKey(nameof(Date), nameof(InstrumentIdentifier))]
+    [PrimaryKey(nameof(PriceDate), nameof(InstrumentID))]
     public class MarketPrice
     {
-        [Key]
-        [Column("Date", Order = 1)]
-        public DateTime Date { get; set; }
+        [Column("PriceDate", Order = 1)]
+        public DateTime PriceDate { get; set; }
 
-        [Required]
-        [Column("InstrumentIdentifier", Order = 2)]
+        [Column("InstrumentID", Order = 2)]
         [MaxLength()]
-        public string InstrumentIdentifier { get; set; }
+        public int InstrumentID { get; set; }
 
         [Column("Price")]
         [Precision(24, 8)]
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
     }
 }
