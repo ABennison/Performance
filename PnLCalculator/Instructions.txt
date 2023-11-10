@@ -25,4 +25,6 @@ Questions:
 1) What is missing from this simple portfolio reporting program? How could it be extended?
 2) How did the portfolio perform overall (to end of October)?
 
+Note: if you want to check the output of your program using excel/good sheets/other software, we have provided the raw data as CSVs in this repository, in the "DataCSVs" folder
+
 For further reading on Entity Framework, see: https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli
