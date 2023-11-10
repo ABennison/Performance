@@ -17,7 +17,8 @@ Tasks:
 3) Populate a List of this data class for the months August - October 2023, for the portfolio described by the given transactions.  
 	Do not track currency balances/overdrafts resulting from the transactions
 4) Output this data to "Performance.csv", by executing the WriteRecords function (as shown in Progrom.cs commented line) on your list variable 
-5) Now add to your position data 2 columns tracking Realised P&L, and Unrealised P&L on each position at each date.  And set it to output in results csv as before
+5) Now add to your position data 2 columns tracking Realised P&L (Profit or Loss), and Unrealised P&L on each position at each date. 
+	And set it to output in results csv as before
 6) Extension (if you found the above easy): 
 	Add 2 more columns to your position data (outputted to Performance.csv) that track Unrealised and Realised P&L in US Dollars for each position at each date
 
