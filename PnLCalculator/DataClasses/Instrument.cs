@@ -21,8 +21,8 @@ namespace PnLCalculator.DataClasses
         public string InstrumentType { get; set; }
 
         [Required]
-        [Column("LocalCurrency")]
+        [Column("CurrencyCode")]
         [MaxLength(3)]
-        public string LocalCurrency { get; set; }
+        public string CurrencyCode { get; set; }
     }
 }

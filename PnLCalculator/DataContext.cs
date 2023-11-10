@@ -43,16 +43,16 @@ namespace PnLCalculator
         private void InitialiseInstruments()
         {
             AddRange(
-                new Instrument { ID = 1, Ticker = "AMCX", InstrumentType = "Equity", LocalCurrency = "USD" },
-                new Instrument { ID = 2, Ticker = "AN", InstrumentType = "Equity", LocalCurrency = "EUR" },
-                new Instrument { ID = 3, Ticker = "BXC", InstrumentType = "Equity", LocalCurrency = "JPY" },
-                new Instrument { ID = 4, Ticker = "CCRN", InstrumentType = "Equity", LocalCurrency = "USD" },
-                new Instrument { ID = 5, Ticker = "GTX", InstrumentType = "Equity", LocalCurrency = "JPY" },
-                new Instrument { ID = 6, Ticker = "JAK", InstrumentType = "Equity", LocalCurrency = "USD" },
-                new Instrument { ID = 7, Ticker = "JIL", InstrumentType = "Equity", LocalCurrency = "EUR" },
-                new Instrument { ID = 8, Ticker = "STLA", InstrumentType = "Equity", LocalCurrency = "NOK" },
-                new Instrument { ID = 9, Ticker = "SDK", InstrumentType = "Equity", LocalCurrency = "USD" },
-                new Instrument { ID = 10, Ticker = "VST", InstrumentType = "Equity", LocalCurrency = "JPY" }
+                new Instrument { ID = 1, Ticker = "AMCX", InstrumentType = "Equity", CurrencyCode = "USD" },
+                new Instrument { ID = 2, Ticker = "AN", InstrumentType = "Equity", CurrencyCode = "EUR" },
+                new Instrument { ID = 3, Ticker = "BXC", InstrumentType = "Equity", CurrencyCode = "JPY" },
+                new Instrument { ID = 4, Ticker = "CCRN", InstrumentType = "Equity", CurrencyCode = "USD" },
+                new Instrument { ID = 5, Ticker = "GTX", InstrumentType = "Equity", CurrencyCode = "JPY" },
+                new Instrument { ID = 6, Ticker = "JAK", InstrumentType = "Equity", CurrencyCode = "USD" },
+                new Instrument { ID = 7, Ticker = "JIL", InstrumentType = "Equity", CurrencyCode = "EUR" },
+                new Instrument { ID = 8, Ticker = "STLA", InstrumentType = "Equity", CurrencyCode = "NOK" },
+                new Instrument { ID = 9, Ticker = "SDK", InstrumentType = "Equity", CurrencyCode = "USD" },
+                new Instrument { ID = 10, Ticker = "VST", InstrumentType = "Equity", CurrencyCode = "JPY" }
             );
         }
 
