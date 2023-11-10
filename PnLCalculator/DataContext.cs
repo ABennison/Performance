@@ -22,9 +22,19 @@ namespace PnLCalculator
                 .HasForeignKey(e => e.InstrumentID);
 
             modelBuilder.Entity<Instrument>()
-                .HasMany(e => e.FxRates)
+                .HasOne(e => e.Currency)
                 .WithMany(e => e.Instruments)
-                .HasForeignKey(e => e.);
+                .HasForeignKey(e => e.CurrencyCode);
+
+            modelBuilder.Entity<Currency>()
+                .HasMany(e => e.FxRates)
+                .WithOne(e => e.Currency)
+                .HasForeignKey(e => e.CurrencyCode);
+
+            modelBuilder.Entity<Instrument>()
+                .HasMany(e => e.MarketPrices)
+                .WithOne(e => e.Instrument)
+                .HasForeignKey(e => e.InstrumentID);
         }
 
         public void InitialiseDatabase()

@@ -14,5 +14,11 @@ namespace PnLCalculator.DataClasses
         [Column("Name")]
         [MaxLength(50)]
         public string Name { get; set; }
+
+        [NotMapped]
+        public IEnumerable<Instrument> Instruments { get; set; } = new List<Instrument>();
+
+        [NotMapped]
+        public IEnumerable<FxRate> FxRates { get; set; } = new List<FxRate>();
     }
 }

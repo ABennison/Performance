@@ -23,12 +23,15 @@ namespace PnLCalculator.DataClasses
         [Required]
         [Column("CurrencyCode")]
         [MaxLength(3)]
-        public string LocalCurrency { get; set; }
+        public string CurrencyCode { get; set; }
 
         [NotMapped]
         public IEnumerable<Transaction> Transactions { get; set;  } = new List<Transaction>();
 
         [NotMapped]
-        public Currency Currency { get; set; };
+        public IEnumerable<MarketPrice> MarketPrices { get; set; } = new List<MarketPrice>();
+
+        [NotMapped]
+        public Currency Currency { get; set; }
     }
 }

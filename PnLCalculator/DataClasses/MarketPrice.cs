@@ -16,5 +16,8 @@ namespace PnLCalculator.DataClasses
         [Column("Price")]
         [Precision(24, 8)]
         public decimal Price { get; set; }
+
+        [NotMapped]
+        public Instrument Instrument { get; set; }
     }
 }

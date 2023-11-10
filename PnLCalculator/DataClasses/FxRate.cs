@@ -21,5 +21,8 @@ namespace PnLCalculator.DataClasses
 
         [NotMapped]
         public IEnumerable<Instrument> Instruments { get; set; } = new List<Instrument>();
+
+        [NotMapped]
+        public Currency Currency { get; set; }
     }
 }
