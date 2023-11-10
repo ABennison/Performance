@@ -1,4 +1,4 @@
-PriceDate,Currency,Rate
+PriceDate,CurrencyCode,Rate
 31/07/2023,EUR,0.9
 31/07/2023,JPY,142.3
 31/07/2023,NOK,10.1
