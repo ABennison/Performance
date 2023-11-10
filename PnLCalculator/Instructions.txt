@@ -22,8 +22,9 @@ Tasks:
 	Add 2 more columns to your position data (outputted to Performance.csv) that track Unrealised and Realised P&L in US Dollars for each position at each date
 
 Questions:
-1) What is missing from this simple portfolio reporting program? How could it be extended?
-2) How did the portfolio perform overall (to end of October)?
+1) How did the portfolio perform overall (to end of October)?
+2) What is missing from this simple portfolio reporting program? How could it be extended?
+
 
 Note: if you want to check the output of your program using excel/good sheets/other software, we have provided the raw data as CSVs in this repository, in the "DataCSVs" folder
 
