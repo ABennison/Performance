@@ -25,5 +25,8 @@ namespace PnLCalculator.DataClasses
         [Required]
         [Column("TradePrice")]
         public decimal TradePrice { get; set; }
+
+        [NotMapped]
+        public virtual Instrument Instrument { get; set; }
     }
 }

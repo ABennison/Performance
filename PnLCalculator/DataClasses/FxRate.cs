@@ -18,5 +18,8 @@ namespace PnLCalculator.DataClasses
         [Column("Rate")]
         [Precision(24, 8)]
         public decimal Rate { get; set; }
+
+        [NotMapped]
+        public IEnumerable<Instrument> Instruments { get; set; } = new List<Instrument>();
     }
 }

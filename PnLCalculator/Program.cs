@@ -1,5 +1,7 @@
 ﻿using CsvHelper;
+using Microsoft.EntityFrameworkCore;
 using PnLCalculator;
+using PnLCalculator.DataClasses;
 using System.Globalization;
 
 // Get filename for results csv, and delete if existing 
@@ -13,6 +15,8 @@ using (var db = new DataContext())
 
     // YOUR CODE OR ENTRY TO YOUR CODE HERE 
 
+    List<Transaction> transactions = db.Transactions.Include(x => x.Instrument).ToList();
+    var sss = 4;
 
     // LINQ to SQL example: Read with WHERE clause 
     // List<MarketPrices> instrumentOnePrices = db.MarketPrices.Where(x => x.InstrumentID = 1).ToList();

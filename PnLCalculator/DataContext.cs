@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PnLCalculator.DataClasses;
+using System.Reflection.Metadata;
 
 namespace PnLCalculator
 {
@@ -15,7 +16,15 @@ namespace PnLCalculator
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.Entity<Transaction>()
+                .HasOne(e => e.Instrument)
+                .WithMany(e => e.Transactions)
+                .HasForeignKey(e => e.InstrumentID);
+
+            modelBuilder.Entity<Instrument>()
+                .HasMany(e => e.FxRates)
+                .WithMany(e => e.Instruments)
+                .HasForeignKey(e => e.);
         }
 
         public void InitialiseDatabase()

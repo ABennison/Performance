@@ -24,5 +24,11 @@ namespace PnLCalculator.DataClasses
         [Column("LocalCurrency")]
         [MaxLength(3)]
         public string LocalCurrency { get; set; }
+
+        [NotMapped]
+        public IEnumerable<Transaction> Transactions { get; set;  } = new List<Transaction>();
+
+        [NotMapped]
+        public IEnumerable<FxRate> FxRates { get; set; } = new List<FxRate>();
     }
 }

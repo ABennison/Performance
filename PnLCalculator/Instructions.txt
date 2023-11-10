@@ -13,10 +13,12 @@ The Program sets up the following tables in an in-memory database using Entity F
 
 Tasks:
 1) Add foreign keys relating the entities where appropriate, see https://learn.microsoft.com/en-us/ef/core/modeling/relationships/foreign-and-principal-keys
+	and https://learn.microsoft.com/en-us/ef/core/modeling/relationships/conventions
 2) Create a new data class to track positions (#shares) in each instrument and their market values (NAVs) in the instrument's local currency over time
 3) Populate a List of this data class for the months August - October 2023, for the portfolio described by the given transactions.  
 	Do not track currency balances/overdrafts resulting from the transactions
-4) Output this data to "Performance.csv", by executing the WriteRecords function (as shown in Progrom.cs commented line) on your list variable 
+4) Output this data to "Performance.csv", by executing the WriteRecords function (as shown in Progrom.cs commented line) on your list variable.  
+	When outputted, ensure the Instrument ticker is included in the csv, rather than just the InstrumentID
 5) Now add to your position data a field to keep track of cumulative P&L (Profit or Loss) for each position at each date. 
 	This is defined as the total cashflow from that instrument's transactions up to and including that date, plus the carrying position's market value
 	And output the results csv as before
@@ -24,7 +26,7 @@ Tasks:
 	the value of each position in USD at that date, and the P&L for that position in USD 
 
 Questions:
-1) How did the portfolio perform overall (to end of October)?
+1) How did the portfolio perform overall (to the end of October)?
 2) How would you add columns for realised and unrealised P&L ? (you don't have to do this)
 3) What is missing from this simple portfolio reporting program, how could it be extended?
 
