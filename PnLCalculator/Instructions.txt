@@ -17,16 +17,16 @@ Tasks:
 3) Populate a List of this data class for the months August - October 2023, for the portfolio described by the given transactions.  
 	Do not track currency balances/overdrafts resulting from the transactions
 4) Output this data to "Performance.csv", by executing the WriteRecords function (as shown in Progrom.cs commented line) on your list variable 
-5) Now add to your position data a field to keep track of P&L (Profit or Loss) for each position at each date. 
+5) Now add to your position data a field to keep track of cumulative P&L (Profit or Loss) for each position at each date. 
 	This is defined as the total cashflow from that instrument's transactions up to and including that date, plus the carrying position's market value
 	And output the results csv as before
-6) Add 3 more columns to your position data (outputted to Performance.csv) showing the prevailing local currency FX rate relating to that instrument, 
+6) Add (at least) 3 more columns to your position data (outputted to Performance.csv) showing the prevailing local currency FX rate relating to that instrument, 
 	the value of each position in USD at that date, and the P&L for that position in USD 
 
 Questions:
 1) How did the portfolio perform overall (to end of October)?
 2) How would you add columns for realised and unrealised P&L ? (you don't have to do this)
-3) What is missing from this simple portfolio reporting program? How could it be extended?
+3) What is missing from this simple portfolio reporting program, how could it be extended?
 
 Note: if you want to check the output of your program using excel/good sheets/other software, we have provided the raw data as CSVs in this repository, in the "DataCSVs" folder
 
