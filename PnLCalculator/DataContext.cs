@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PnLCalculator.Classes;
+using System.Reflection.Metadata;
 
 namespace PnLCalculator
 {
@@ -8,9 +9,15 @@ namespace PnLCalculator
         public DbSet<Instrument> Instruments { get; set; }
         public DbSet<MarketPrice> MarketPrices { get; set; }
         public DbSet<FxRate> FxRates { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseInMemoryDatabase("Database");
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+        }
 
         public void InitialiseDatabase()
         {
@@ -18,6 +25,7 @@ namespace PnLCalculator
             Database.EnsureCreated();
 
             InitialiseInstruments();
+            InitialiseTransactions();
             InitialiseFxRates();
             InitialiseInstrumentPrices();
         }
@@ -35,6 +43,77 @@ namespace PnLCalculator
                 new Instrument { ID = 8, Ticker = "STLA", InstrumentType = "Equity", LocalCurrency = "NOK" },
                 new Instrument { ID = 9, Ticker = "SDK", InstrumentType = "Equity", LocalCurrency = "USD" },
                 new Instrument { ID = 10, Ticker = "VST", InstrumentType = "Equity", LocalCurrency = "JPY" }
+            );
+        }
+
+        private void InitialiseTransactions()
+        {
+            AddRange(
+                new Transaction { ID = 1, InstrumentID = 1, TradeDate = new DateTime(2023, 8, 1), Quantity = 100, TradePrice = 12.89M },
+                new Transaction { ID = 2, InstrumentID = 6, TradeDate = new DateTime(2023, 8, 1), Quantity = 30, TradePrice = 20.74M },
+                new Transaction { ID = 3, InstrumentID = 7, TradeDate = new DateTime(2023, 8, 1), Quantity = 100, TradePrice = 22.27M },
+                new Transaction { ID = 4, InstrumentID = 9, TradeDate = new DateTime(2023, 8, 1), Quantity = 540, TradePrice = 3.77M },
+                new Transaction { ID = 5, InstrumentID = 3, TradeDate = new DateTime(2023, 8, 3), Quantity = 500, TradePrice = 84.6M },
+                new Transaction { ID = 6, InstrumentID = 5, TradeDate = new DateTime(2023, 8, 3), Quantity = 30000, TradePrice = 7.72M },
+                new Transaction { ID = 7, InstrumentID = 6, TradeDate = new DateTime(2023, 8, 3), Quantity = 50, TradePrice = 20.4M },
+                new Transaction { ID = 8, InstrumentID = 7, TradeDate = new DateTime(2023, 8, 3), Quantity = 20, TradePrice = 22.51M },
+                new Transaction { ID = 9, InstrumentID = 1, TradeDate = new DateTime(2023, 8, 4), Quantity = 80, TradePrice = 13.78M },
+                new Transaction { ID = 10, InstrumentID = 3, TradeDate = new DateTime(2023, 8, 4), Quantity = -500, TradePrice = 87.08M },
+                new Transaction { ID = 11, InstrumentID = 4, TradeDate = new DateTime(2023, 8, 4), Quantity = 250, TradePrice = 21.64M },
+                new Transaction { ID = 12, InstrumentID = 5, TradeDate = new DateTime(2023, 8, 4), Quantity = 17500, TradePrice = 7.5M },
+                new Transaction { ID = 13, InstrumentID = 8, TradeDate = new DateTime(2023, 8, 8), Quantity = 300, TradePrice = 19.38M },
+                new Transaction { ID = 14, InstrumentID = 9, TradeDate = new DateTime(2023, 8, 8), Quantity = 150, TradePrice = 3.93M },
+                new Transaction { ID = 15, InstrumentID = 1, TradeDate = new DateTime(2023, 8, 11), Quantity = 110, TradePrice = 12.3M },
+                new Transaction { ID = 16, InstrumentID = 1, TradeDate = new DateTime(2023, 8, 14), Quantity = 250, TradePrice = 12.01M },
+                new Transaction { ID = 17, InstrumentID = 3, TradeDate = new DateTime(2023, 8, 15), Quantity = 1000, TradePrice = 85.87M },
+                new Transaction { ID = 18, InstrumentID = 2, TradeDate = new DateTime(2023, 8, 16), Quantity = 30, TradePrice = 151.34M },
+                new Transaction { ID = 19, InstrumentID = 3, TradeDate = new DateTime(2023, 8, 16), Quantity = 1000, TradePrice = 84.33M },
+                new Transaction { ID = 20, InstrumentID = 6, TradeDate = new DateTime(2023, 8, 16), Quantity = -40, TradePrice = 19.07M },
+                new Transaction { ID = 21, InstrumentID = 7, TradeDate = new DateTime(2023, 8, 16), Quantity = 30, TradePrice = 23.67M },
+                new Transaction { ID = 22, InstrumentID = 4, TradeDate = new DateTime(2023, 8, 21), Quantity = -100, TradePrice = 25.52M },
+                new Transaction { ID = 23, InstrumentID = 9, TradeDate = new DateTime(2023, 8, 21), Quantity = 88, TradePrice = 3.39M },
+                new Transaction { ID = 24, InstrumentID = 3, TradeDate = new DateTime(2023, 8, 22), Quantity = -700, TradePrice = 80.54M },
+                new Transaction { ID = 25, InstrumentID = 4, TradeDate = new DateTime(2023, 8, 22), Quantity = -60, TradePrice = 24.72M },
+                new Transaction { ID = 26, InstrumentID = 4, TradeDate = new DateTime(2023, 8, 23), Quantity = -70, TradePrice = 24.51M },
+                new Transaction { ID = 27, InstrumentID = 4, TradeDate = new DateTime(2023, 8, 24), Quantity = -20, TradePrice = 24.97M },
+                new Transaction { ID = 28, InstrumentID = 1, TradeDate = new DateTime(2023, 8, 29), Quantity = 300, TradePrice = 11.57M },
+                new Transaction { ID = 29, InstrumentID = 2, TradeDate = new DateTime(2023, 8, 31), Quantity = -20, TradePrice = 158.17M },
+                new Transaction { ID = 30, InstrumentID = 9, TradeDate = new DateTime(2023, 9, 6), Quantity = -51, TradePrice = 3.34M },
+                new Transaction { ID = 31, InstrumentID = 5, TradeDate = new DateTime(2023, 9, 11), Quantity = -450, TradePrice = 7.46M },
+                new Transaction { ID = 32, InstrumentID = 8, TradeDate = new DateTime(2023, 9, 11), Quantity = -100, TradePrice = 19.14M },
+                new Transaction { ID = 33, InstrumentID = 1, TradeDate = new DateTime(2023, 9, 12), Quantity = -200, TradePrice = 10.84M },
+                new Transaction { ID = 34, InstrumentID = 2, TradeDate = new DateTime(2023, 9, 12), Quantity = -10, TradePrice = 151.23M },
+                new Transaction { ID = 35, InstrumentID = 5, TradeDate = new DateTime(2023, 9, 13), Quantity = 1000, TradePrice = 7.86M },
+                new Transaction { ID = 36, InstrumentID = 8, TradeDate = new DateTime(2023, 9, 13), Quantity = 250, TradePrice = 18.67M },
+                new Transaction { ID = 37, InstrumentID = 9, TradeDate = new DateTime(2023, 9, 13), Quantity = -300, TradePrice = 3.2M },
+                new Transaction { ID = 38, InstrumentID = 6, TradeDate = new DateTime(2023, 9, 15), Quantity = 80, TradePrice = 17.76M },
+                new Transaction { ID = 39, InstrumentID = 7, TradeDate = new DateTime(2023, 9, 15), Quantity = -60, TradePrice = 26.29M },
+                new Transaction { ID = 40, InstrumentID = 2, TradeDate = new DateTime(2023, 9, 18), Quantity = 10, TradePrice = 152.51M },
+                new Transaction { ID = 41, InstrumentID = 5, TradeDate = new DateTime(2023, 9, 19), Quantity = -37870, TradePrice = 8.05M },
+                new Transaction { ID = 42, InstrumentID = 8, TradeDate = new DateTime(2023, 9, 19), Quantity = -250, TradePrice = 18.91M },
+                new Transaction { ID = 43, InstrumentID = 1, TradeDate = new DateTime(2023, 9, 20), Quantity = 150, TradePrice = 11.41M },
+                new Transaction { ID = 44, InstrumentID = 4, TradeDate = new DateTime(2023, 9, 20), Quantity = 50, TradePrice = 23.51M },
+                new Transaction { ID = 45, InstrumentID = 3, TradeDate = new DateTime(2023, 9, 21), Quantity = -1000, TradePrice = 81.88M },
+                new Transaction { ID = 46, InstrumentID = 9, TradeDate = new DateTime(2023, 9, 25), Quantity = 150, TradePrice = 3.22M },
+                new Transaction { ID = 47, InstrumentID = 4, TradeDate = new DateTime(2023, 9, 26), Quantity = -50, TradePrice = 24.27M },
+                new Transaction { ID = 48, InstrumentID = 1, TradeDate = new DateTime(2023, 9, 27), Quantity = 200, TradePrice = 11.06M },
+                new Transaction { ID = 49, InstrumentID = 3, TradeDate = new DateTime(2023, 9, 27), Quantity = -150, TradePrice = 82.66M },
+                new Transaction { ID = 50, InstrumentID = 9, TradeDate = new DateTime(2023, 9, 27), Quantity = -577, TradePrice = 3.19M },
+                new Transaction { ID = 51, InstrumentID = 3, TradeDate = new DateTime(2023, 10, 4), Quantity = -150, TradePrice = 77.58M },
+                new Transaction { ID = 52, InstrumentID = 6, TradeDate = new DateTime(2023, 10, 4), Quantity = 10, TradePrice = 18.33M },
+                new Transaction { ID = 53, InstrumentID = 7, TradeDate = new DateTime(2023, 10, 4), Quantity = 70, TradePrice = 28.92M },
+                new Transaction { ID = 54, InstrumentID = 3, TradeDate = new DateTime(2023, 10, 10), Quantity = 50, TradePrice = 78.3M },
+                new Transaction { ID = 55, InstrumentID = 1, TradeDate = new DateTime(2023, 10, 11), Quantity = -50, TradePrice = 12.04M },
+                new Transaction { ID = 56, InstrumentID = 5, TradeDate = new DateTime(2023, 10, 11), Quantity = -10180, TradePrice = 7.67M },
+                new Transaction { ID = 57, InstrumentID = 8, TradeDate = new DateTime(2023, 10, 11), Quantity = 50, TradePrice = 20.61M },
+                new Transaction { ID = 58, InstrumentID = 2, TradeDate = new DateTime(2023, 10, 13), Quantity = 10, TradePrice = 135.75M },
+                new Transaction { ID = 59, InstrumentID = 10, TradeDate = new DateTime(2023, 10, 18), Quantity = 1400, TradePrice = 24.91M },
+                new Transaction { ID = 60, InstrumentID = 10, TradeDate = new DateTime(2023, 10, 19), Quantity = -500, TradePrice = 24.27M },
+                new Transaction { ID = 61, InstrumentID = 1, TradeDate = new DateTime(2023, 10, 24), Quantity = -100, TradePrice = 12.23M },
+                new Transaction { ID = 62, InstrumentID = 2, TradeDate = new DateTime(2023, 10, 25), Quantity = 40, TradePrice = 128.86M },
+                new Transaction { ID = 63, InstrumentID = 3, TradeDate = new DateTime(2023, 10, 25), Quantity = 6000, TradePrice = 68.14M },
+                new Transaction { ID = 64, InstrumentID = 4, TradeDate = new DateTime(2023, 10, 26), Quantity = 10, TradePrice = 22.77M },
+                new Transaction { ID = 65, InstrumentID = 6, TradeDate = new DateTime(2023, 10, 30), Quantity = -20, TradePrice = 16.83M }
             );
         }
 
@@ -905,5 +984,6 @@ namespace PnLCalculator
 
             SaveChanges();
         }
+
     }
 }

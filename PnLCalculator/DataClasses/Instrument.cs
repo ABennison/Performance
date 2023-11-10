@@ -10,6 +10,8 @@ namespace PnLCalculator.Classes
         [Column("ID")]
         public int ID { get; set; }
 
+        [Required]
+        [Column("Ticker")]
         [MaxLength(255)]
         public string Ticker { get; set; }
 
