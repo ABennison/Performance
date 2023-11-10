@@ -1,0 +1,11 @@
+ID,Ticker,Type,LocalCurrency
+1,AMCX,Equity,USD
+2,AN,Equity,EUR
+3,BXC,Equity,JPY
+4,CCRN,Equity,USD
+5,GTX,Equity,JPY
+6,JAK,Equity,USD
+7,JIL,Equity,EUR
+8,STLA,Equity,NOK
+9,SDK,Equity,USD
+10,VST,Equity,JPY
