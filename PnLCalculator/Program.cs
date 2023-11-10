@@ -1,28 +1,28 @@
-﻿using PnLCalculator;
+﻿using CsvHelper;
+using PnLCalculator;
+using System.Globalization;
 
-using DataContext db = new DataContext();
+// Write results object to CSV (we haven't created this object in the starting project)
+var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+var resultsPath = Path.Combine(documentsPath, "Performance.csv");
+if (File.Exists(resultsPath)) { File.Delete(resultsPath); }
 
-db.InitialiseDatabase();
+using (var db = new DataContext())
+{
+    db.InitialiseDatabase();
 
-var thingy = db.MarketPrices.Where(x => x.InstrumentID == 1).ToList();
-int sss = 5;
+    // YOUR CODE OR ENTRY TO YOUR CODE HERE 
 
-// Create
-//Instrument newInstrument = new Instrument() { InstrumentIdentifier = "TSLA", InstrumentType = "Equity" };
-//db.Instruments.Add(newInstrument);
-//db.SaveChanges();
+};
 
+// LINQ to SQL example: Read with WHERE clause 
+// List<MarketPrices> instrumentOnePrices = db.MarketPrices.Where(x => x.InstrumentID = 1).ToList();
 
-// Read
-//List<Instrument> list = db.Instruments.ToList();
-
-
-// Update
-//MarketPrice marketPrice = db.MarketPrices.FirstOrDefault(x => x.Date == new DateTime(2023, 10, 15) && x.InstrumentIdentifier == "TEST");
-//marketPrice.Price = 35;
-//db.SaveChanges();
-
-
-// Delete
-//db.Instruments.Remove(newInstrument);
-//db.SaveChanges();
+// Write results object to CSV (we haven't created this object in the starting project)
+using (var writer = new StreamWriter(resultsPath)) 
+{ 
+    using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture)) 
+    {
+        //csv.WriteRecords(results);
+    }
+}

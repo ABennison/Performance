@@ -4,18 +4,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PnLCalculator.Classes
 {
-    [Table("MarketPrice")]
-    [PrimaryKey(nameof(PriceDate), nameof(InstrumentID))]
-    public class MarketPrice
+    [Table("FxRate")]
+    [PrimaryKey(nameof(PriceDate), nameof(Currency))]
+    public class FxRate
     {
         [Column("PriceDate", Order = 1)]
         public DateTime PriceDate { get; set; }
 
-        [Column("InstrumentID", Order = 2)]
-        public int InstrumentID { get; set; }
+        [Column("Currency", Order = 2)]
+        [MaxLength(3)]
+        public string Currency { get; set; }
 
-        [Column("Price")]
+        [Column("Rate")]
         [Precision(24, 8)]
-        public decimal Price { get; set; }
+        public decimal Rate { get; set; }
     }
 }
