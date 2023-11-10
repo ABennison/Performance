@@ -1,14 +1,28 @@
 Doxa Partners - Systems Case Study 
 
 Try not to spend too long on this case study, at most a few hours.  
-If you don't have time to complete it, then send in what you have, and we willt ake into account your level of prior experience. 
+If you don't have time to complete it, then pelase attempt the tasks in order, and send in what you have.
+We will take into account your level of prior experience when assessing, and will also judge your coding style. 
+There are many ways to complete the tasks, and we will look for evidence of you making sensible choices in coding logic and structure. 
+
+The Program sets up the following tables in an in-memory database using Entity Framework (an Object Relational Mapper):
+1) Instrument - Static data relating to instruments
+2) MarketPrice - Instrument prices in their local currency by date
+3) FxRate - FX Rates against USD by currency by date.  Rates are "number of local currency per US dollar", e.g. > 100 for JPY 
+4) Transaction - transactions (buy/sell), with relevant date, transaction price, and 
 
 Tasks:
-1)
-2)
-
-
+1) Add foreign keys relating the entities where appropriate, see https://learn.microsoft.com/en-us/ef/core/modeling/relationships/foreign-and-principal-keys
+2) Create a new data class to track positions (#shares) in each instrument and their market values (NAVs) in the instrument's local currency over time
+3) Populate a List of this data class for the months August - October 2023, for the portfolio described by the given transactions.  
+	Do not track currency balances/overdrafts resulting from the transactions
+4) Output this data to "Performance.csv", by executing the WriteRecords function (as shown in Progrom.cs commented line) on your list variable 
+5) Now add to your position data 2 columns tracking Realised P&L, and Unrealised P&L on each position at each date.  And set it to output in results csv as before
+6) Extension (if you found the above easy): 
+	Add 2 more columns to your position data (outputted to Performance.csv) that track Unrealised and Realised P&L in US Dollars for each position at each date
 
 Questions:
-1)
-2)
+1) What is missing from this simple portfolio reporting program? How could it be extended?
+2) How did the portfolio perform overall (to end of October)?
+
+For further reading on Entity Framework, see: https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli
