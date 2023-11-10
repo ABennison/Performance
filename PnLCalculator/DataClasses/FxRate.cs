@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PnLCalculator.Classes
+namespace PnLCalculator.DataClasses
 {
     [Table("FxRate")]
     [PrimaryKey(nameof(PriceDate), nameof(Currency))]

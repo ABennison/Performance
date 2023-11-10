@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PnLCalculator.Classes
+namespace PnLCalculator.DataClasses
 {
     [Table("MarketPrice")]
     [PrimaryKey(nameof(PriceDate), nameof(InstrumentID))]

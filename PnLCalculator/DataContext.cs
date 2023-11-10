@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PnLCalculator.Classes;
-using System.Reflection.Metadata;
+using PnLCalculator.DataClasses;
 
 namespace PnLCalculator
 {

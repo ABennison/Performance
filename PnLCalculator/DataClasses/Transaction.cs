@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PnLCalculator.Classes
+namespace PnLCalculator.DataClasses
 {
     [Table("Transaction")]
     public class Transaction
