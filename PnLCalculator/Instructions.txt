@@ -1,15 +1,16 @@
 Doxa Partners - Systems Case Study 
 
 Try not to spend too long on this case study, at most a few hours.  
-If you don't have time to complete it, then pelase attempt the tasks in order, and send in what you have.
+If you don't have time to complete it, then please attempt the tasks in order, and send in what you have.
 We will take into account your level of prior experience when assessing, and will also judge your coding style. 
 There are many ways to complete the tasks, and we will look for evidence of you making sensible choices in coding logic and structure. 
 
 The Program sets up the following tables in an in-memory database using Entity Framework (an Object Relational Mapper):
-1) Instrument - Static data relating to instruments
-2) MarketPrice - Instrument prices in their local currency by date
-3) FxRate - FX Rates against USD by currency by date.  Rates are "number of local currency per US dollar", e.g. > 100 for JPY 
-4) Transaction - transactions (buy/sell), with relevant date, transaction price, and 
+1) Currency - Currency Code and Currency Name 
+2) Instrument - Static data relating to instruments
+3) MarketPrice - Instrument prices in their local currency by date
+4) FxRate - FX Rates against USD by currency by date.  Rates are "number of local currency per US dollar", e.g. > 100 for JPY 
+5) Transaction - transactions (buy/sell), with relevant date, transaction price, and 
 
 Tasks:
 1) Add foreign keys relating the entities where appropriate, see https://learn.microsoft.com/en-us/ef/core/modeling/relationships/foreign-and-principal-keys
@@ -17,7 +18,7 @@ Tasks:
 2) Create a new data class to track positions (#shares) in each instrument and their market values (NAVs) in the instrument's local currency over time
 3) Populate a List of this data class for the months August - October 2023, for the portfolio described by the given transactions.  
 	Do not track currency balances/overdrafts resulting from the transactions
-4) Output this data to "Performance.csv", by executing the WriteRecords function (as shown in Progrom.cs commented line) on your list variable.  
+4) Output this data to "Performance.csv", by executing the WriteRecords function (as shown in Program.cs commented line) on your list variable.  
 	When outputted, ensure the Instrument ticker is included in the csv, rather than just the InstrumentID
 5) Now add to your position data a field to keep track of cumulative P&L (Profit or Loss) for each position at each date. 
 	This is defined as the total cashflow from that instrument's transactions up to and including that date, plus the carrying position's market value
