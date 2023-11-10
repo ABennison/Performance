@@ -15,8 +15,8 @@ namespace PnLCalculator.DataClasses
         public int InstrumentID { get; set; }
 
         [Required]
-        [Column("Date")]
-        public DateTime Date { get; set; }
+        [Column("TradeDate")]
+        public DateTime TradeDate { get; set; }
 
         [Required]
         [Column("Quantity")]
