@@ -29,6 +29,6 @@ namespace PnLCalculator.DataClasses
         public IEnumerable<Transaction> Transactions { get; set;  } = new List<Transaction>();
 
         [NotMapped]
-        public IEnumerable<FxRate> FxRates { get; set; } = new List<FxRate>();
+        public Currency Currency { get; set; };
     }
 }
