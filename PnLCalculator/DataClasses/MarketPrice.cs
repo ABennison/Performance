@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PnLCalculator.DataClasses
 {
     [Table("MarketPrice")]
-    [PrimaryKey(nameof(Date), nameof(InstrumentID))]
+    [PrimaryKey(nameof(PriceDate), nameof(InstrumentID))]
     public class MarketPrice
     {
-        [Column("Date", Order = 1)]
-        public DateTime Date { get; set; }
+        [Column("PriceDate", Order = 1)]
+        public DateTime PriceDate { get; set; }
 
         [Column("InstrumentID", Order = 2)]
         public int InstrumentID { get; set; }
