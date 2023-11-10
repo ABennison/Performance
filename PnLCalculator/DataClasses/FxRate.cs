@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PnLCalculator.DataClasses
 {
     [Table("FxRate")]
-    [PrimaryKey(nameof(PriceDate), nameof(CurrencyCode))]
+    [PrimaryKey(nameof(Date), nameof(CurrencyCode))]
     public class FxRate
     {
-        [Column("PriceDate", Order = 1)]
-        public DateTime PriceDate { get; set; }
+        [Column("Date", Order = 1)]
+        public DateTime Date { get; set; }
 
         [Column("CurrencyCode", Order = 2)]
         [MaxLength(3)]
