@@ -1,26 +1,26 @@
 ﻿using CsvHelper;
-using Microsoft.EntityFrameworkCore;
 using PnLCalculator;
 using PnLCalculator.DataClasses;
 using System.Globalization;
+
+var START_DATE = new DateTime(2023, 8, 1);
+var END_DATE = new DateTime(2023, 10, 31);
 
 // Get filename for results csv, and delete if existing 
 var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 var resultsPath = Path.Combine(documentsPath, "Performance.csv");
 if (File.Exists(resultsPath)) { File.Delete(resultsPath); }
 
+List<Position> positions = new List<Position>();
+
 using (var db = new DataContext())
 {
     db.InitialiseDatabase();
-
-    // YOUR CODE OR ENTRY TO YOUR CODE HERE 
-
-    List<Transaction> transactions = db.Transactions.Include(x => x.Instrument).ToList();
-    var sss = 4;
-
-    // LINQ to SQL example: Read with WHERE clause 
-    // List<MarketPrices> instrumentOnePrices = db.MarketPrices.Where(x => x.InstrumentID = 1).ToList();
-
+    var instruments = db.Instruments.ToList();
+    foreach (var instrument in instruments)
+    {
+        positions.AddRange(PositionsCalculator.CalculatePositions(db, instrument, START_DATE, END_DATE));
+    }
 };
 
 // Write results object to CSV (we haven't created this object in the template given to you)
@@ -28,6 +28,6 @@ using (var writer = new StreamWriter(resultsPath))
 { 
     using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture)) 
     {
-        //csv.WriteRecords(YOUR_RESULTS_LIST_OBJECT);
+        csv.WriteRecords(positions.OrderBy(x => x.PositionDate).ThenBy(x => x.InstrumentID));
     }
 }

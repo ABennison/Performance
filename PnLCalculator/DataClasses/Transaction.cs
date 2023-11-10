@@ -28,5 +28,11 @@ namespace PnLCalculator.DataClasses
 
         [NotMapped]
         public virtual Instrument Instrument { get; set; }
+
+        [NotMapped]
+        public decimal CashFlow 
+        {
+            get => -TradePrice * Quantity;
+        }
     }
 }
