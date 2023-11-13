@@ -34,5 +34,8 @@ namespace PnLCalculator.DataClasses
         {
             get => -TradePrice * Quantity;
         }
+
+        [NotMapped]
+        public decimal CashFlowUSD { get; set; }
     }
 }

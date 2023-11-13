@@ -17,13 +17,14 @@ using (var db = new DataContext())
 {
     db.InitialiseDatabase();
     var instruments = db.Instruments.ToList();
+    UsdCashflowCalculator.CalculateUsdCashflows(db.Transactions.ToList());
     foreach (var instrument in instruments)
     {
         positions.AddRange(PositionsCalculator.CalculatePositions(db, instrument, START_DATE, END_DATE));
     }
 };
 
-// Write results object to CSV (we haven't created this object in the template given to you)
+// Write results object to CSV
 using (var writer = new StreamWriter(resultsPath)) 
 { 
     using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture)) 

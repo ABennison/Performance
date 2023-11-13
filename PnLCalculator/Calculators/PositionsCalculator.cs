@@ -25,11 +25,19 @@ public static class PositionsCalculator
             Quantity = instrument.Transactions.Where(x => x.TradeDate <= currentDate).Sum(x => x.Quantity),
             MarketPriceLC = instrument.MarketPrices.Where(x => x.PriceDate <= currentDate).OrderByDescending(x => x.PriceDate)
                 .Select(x => x.Price).FirstOrDefault(),
-            PnlLC  = instrument.Transactions.Where(x => x.TradeDate <= currentDate).Sum(x => x.CashFlow)
+            PnlLC  = instrument.Transactions.Where(x => x.TradeDate <= currentDate).Sum(x => x.CashFlow),
+            PnlUSD = instrument.Transactions.Where(x => x.TradeDate <= currentDate).Sum(x => x.CashFlowUSD)
         };
 
         position.NavLC = position.MarketPriceLC * position.Quantity;
         position.PnlLC += position.NavLC;
+        FxRate rate = instrument.Currency.FxRates.Where(x => x.PriceDate <= currentDate).OrderByDescending(x => x.PriceDate)
+                .FirstOrDefault();
+
+        position.FxRate = rate?.Rate ?? 1;
+        position.NavUSD = position.NavLC / position.FxRate;
+        position.PnlUSD += position.NavUSD;
+        position.PnlLC_USD = position.PnlLC / position.FxRate;
 
         return position;
     }
