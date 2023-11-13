@@ -29,8 +29,9 @@ Tasks:
 Questions:
 1) How did the portfolio perform overall (to the end of October)?
 2) How would you add columns for realised and unrealised P&L ? (you don't have to do this)
-3) What is missing from this simple portfolio reporting program, how could it be extended?
+3) Would you calculate the Positions/P&L any differently if the calculation took a significant amount of time, and the results were being written to a live database?
+4) What is missing from this simple portfolio reporting program, how could it be extended?
 
-Note: if you want to check the output of your program using excel/good sheets/other software, we have provided the raw data as CSVs in this repository, in the "DataCSVs" folder
+Note: if you want to check the output of your program using excel/google sheets/other software, we have provided the raw data as CSVs in this repository, in the "DataCSVs" folder
 
 For further reading on Entity Framework, see: https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli
